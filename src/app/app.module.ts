@@ -6,7 +6,9 @@ import { HeaderComponent } from './header/header.component';
 import { WeatherTodayComponent } from './weather-today/weather-today.component';
 import { Forecast16Component } from './forecast-16/forecast-16.component';
 import { Angular2FontawesomeModule } from 'angular2-fontawesome/angular2-fontawesome';
-import { AlertModule } from 'ngx-bootstrap';
+import { HttpModule } from '@angular/http';
+import {AppService} from "./app.service";
+
 
 @NgModule({
   declarations: [
@@ -16,9 +18,9 @@ import { AlertModule } from 'ngx-bootstrap';
     Forecast16Component
   ],
   imports: [
-    BrowserModule, Angular2FontawesomeModule, AlertModule.forRoot()
+    BrowserModule, Angular2FontawesomeModule, HttpModule
   ],
-  providers: [],
+  providers: [AppService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
