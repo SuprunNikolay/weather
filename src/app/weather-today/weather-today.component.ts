@@ -9,6 +9,23 @@ export class WeatherTodayComponent implements OnInit {
 
   constructor() { }
 
+  today = Date.now();
+
+
+  chosenCity = "London, GB";
+  tempNow =  27;
+  weatherType = "sunny";
+  weatherImage = "http://openweathermap.org/img/w/50d.png";
+  preassureNow = 1024;
+  humidityNow = 41;
+  windspeedNow = 1.5;
+  cloudsNow = 20;
+
+
+
+
+
+
   ngOnInit() {
   }
 

@@ -1,21 +1,23 @@
-<div class="today-date"></div>
+<div class="today-date">{{today | date: 'EEEE, d MMMM'}}</div>
 <section class="weather-today">
 
-  <div class="chosen-city"></div>
-  <div class="temp-now"></div>
-  <div class="weather-type-now"></div>
+  <div class="chosen-city">{{chosenCity}}</div>
+  <div class="temp-now">{{tempNow}}° C</div>
+  <div class="weather-type-now">
+    <img src="{{weatherImage}}" alt="weather-type">
+    {{weatherType}}</div>
   <div class="indicators-group">
     <div class="preassure-now bold">Pressure:
-      <span class="preassure-now-data"></span>
+      <span class="preassure-now-data">{{preassureNow}} hPa</span>
     </div>
     <div class="humidity-now bold">Humidity:
-      <span class="humidity-now-data"></span>
+      <span class="humidity-now-data">{{humidityNow}}%</span>
     </div>
     <div class="windspeed-now bold">Windspeed:
-      <span class="windspeed-now-data"></span>
+      <span class="windspeed-now-data">{{windspeedNow}} m/s</span>
     </div>
     <div class="clouds-now bold">Clouds:
-      <span class="clouds-now-data"></span>
+      <span class="clouds-now-data">{{cloudsNow}}%</span>
     </div>
   </div>
 

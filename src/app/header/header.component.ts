@@ -11,5 +11,12 @@ export class HeaderComponent implements OnInit {
 
   ngOnInit() {
   }
-
+  clickSearchCity(){
+    alert('work');
+  }
+  keyupSearchCity(event){
+    if(event.keyCode=='13') {
+      alert('work');
+    }
+  }
 }
