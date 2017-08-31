@@ -9,7 +9,9 @@ import { AppService } from '../app.service';
 })
 export class Forecast16Component implements OnInit {
 
-  constructor() { }
+  constructor() { }э
+
+
 
   ngOnInit() {
   }

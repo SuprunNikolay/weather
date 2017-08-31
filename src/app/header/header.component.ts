@@ -1,23 +1,21 @@
 import { Component, OnInit } from '@angular/core';
-
+import { AppService } from '../app.service';
 
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
   styleUrls: ['../app.component.css'],
+  providers: [AppService]
 })
 export class HeaderComponent implements OnInit {
 
-  constructor() { }
+  constructor(private appService: AppService) {
+  }
+  clickSearchCity(newCity){
+    this.appService.cityChose(newCity.value);
+  }
 
-  ngOnInit() {
-  }
-  clickSearchCity(){
-    alert('work');
-  }
-  keyupSearchCity(event){
-    if(event.keyCode=='13') {
-      alert('work');
-    }
-  }
-}
+    ngOnInit() {};
+
+  };
+

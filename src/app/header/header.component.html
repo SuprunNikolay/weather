@@ -5,8 +5,8 @@
     Forecast
   </div>
   <div class="search">
-    <input type="text" name="city" id="city" placeholder="City" (keyup)="keyupSearchCity($event)">
-    <button id="searchCity" (click)="clickSearchCity()"><i class="fa fa-search" aria-hidden="true"></i></button>
+    <input type="text" name="city" id="city" placeholder="City" #newCity  (keyup.enter)="clickSearchCity(newCity.value)">
+    <button id="searchCity" (click)="clickSearchCity(newCity.value)"><i class="fa fa-search" aria-hidden="true"></i></button>
   </div>
 
 </header>
