@@ -1,15 +1,14 @@
 import { Component, OnInit } from '@angular/core';
 import { AppService } from '../app.service';
 
+
 @Component({
   selector: 'app-weather-today',
   templateUrl: './weather-today.component.html',
-  styleUrls: ['../app.component.css'],
-  providers: [AppService]
+  styleUrls: ['../app.component.css']
 })
 export class WeatherTodayComponent implements OnInit {
 
-  data: any;
   today = Date.now();
   chosenCity: string;
   tempNow: number;
@@ -24,10 +23,8 @@ export class WeatherTodayComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.appService.getToday$()
+    this.appService.getToday()
       .subscribe(data => {
-        this.data = data
-        console.log(this.data);
         this.chosenCity = data.name;
         this.tempNow = (data.main.temp).toFixed(0);
         this.weatherType = data.weather[0].description;
