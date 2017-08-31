@@ -9,16 +9,26 @@
   </ul>
   <div class="tab-content">
     <div id="wind" class="tab-pane fade">
-      <div id="wind-chart" style="min-width: 310px; height: 300px; margin: 0 auto"></div>
     </div>
     <div id="temperature" class="tab-pane fade in active">
-      <div id="temp-chart" style="min-width: 310px; height: 300px; margin: 0 auto"></div>
     </div>
     <div id="preassure" class="tab-pane fade">
-      <div id="pressure-chart" style="min-width: 310px; height: 300px; margin: 0 auto"></div>
     </div>
     <div id="humidity" class="tab-pane fade">
-      <div id="humidity-chart" style="min-width: 310px; height: 300px; margin: 0 auto"></div>
+
     </div>
   </div>
+  <ngx-charts-bar-vertical
+    [view]="view"
+    [scheme]="colorScheme"
+    [results]="result"
+
+    [xAxis]="showXAxis"
+    [yAxis]="showYAxis"
+    [showGridLines]="showGridLines"
+
+    [showYAxisLabel]="showYAxisLabel"
+
+    (select)="onSelect($event)">
+  </ngx-charts-bar-vertical>
 </section>

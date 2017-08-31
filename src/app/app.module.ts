@@ -8,6 +8,8 @@ import { Forecast16Component } from './forecast-16/forecast-16.component';
 import { Angular2FontawesomeModule } from 'angular2-fontawesome/angular2-fontawesome';
 import { HttpModule } from '@angular/http';
 import {AppService} from "./app.service";
+import {NgxChartsModule} from "@swimlane/ngx-charts";
+import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 
 
 @NgModule({
@@ -18,7 +20,7 @@ import {AppService} from "./app.service";
     Forecast16Component
   ],
   imports: [
-    BrowserModule, Angular2FontawesomeModule, HttpModule
+    BrowserModule, Angular2FontawesomeModule, HttpModule, NgxChartsModule, BrowserAnimationsModule
   ],
   providers: [AppService],
   bootstrap: [AppComponent]
