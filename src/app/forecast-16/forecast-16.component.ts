@@ -17,7 +17,10 @@ interface BarData {
 export class Forecast16Component implements OnInit {
 
   temp: BarData[] = [];
-  result = this.temp;
+  humidity: BarData[] = [];
+  wind: BarData[] = [];
+  result: any;
+
 
   view: any[] = [1000,200];
 
@@ -35,19 +38,49 @@ export class Forecast16Component implements OnInit {
   constructor(private appService: AppService) {
 
   }
+  selectWind() {
+    this.result = null;
+    this.result = this.wind;
+    this.colorScheme = {
+      domain: ['#ffg731']
+    };
+  }
+  selectHumidity() {
+    this.result = [];
+    this.result = this.humidity;
+    this.colorScheme = {
+      domain: ['#ffc771']
+    };
+  }
+  selectTemp() {
+    this.result = this.temp;
+  }
 
   ngOnInit() {
     this.appService.getDaily()
       .subscribe(data => {
         data.list.forEach((value) => {
           this.temp.push({
-            name: new Date(value.dt*1000),
-            value: value.temp.max
+            'name': new Date(value.dt*1000),
+            'value': value.temp.max
+          });
+          this.humidity.push({
+            'name': new Date(value.dt*1000),
+            'value': value.humidity
+          });
+          this.wind.push({
+            'name': new Date(value.dt*1000),
+            'value': value.speed
           });
         });
-      });
+
+
+        // console.log(this.temp);
+        this.result=this.temp;
+
+      })
   }
-
-
-
 }
+
+
+

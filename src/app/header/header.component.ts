@@ -14,6 +14,7 @@ export class HeaderComponent implements OnInit {
   }
   clickSearchCity(newCity){
     this.appService.cityChose(newCity);
+    newCity = null;
   }
 
     ngOnInit() {

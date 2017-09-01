@@ -2,22 +2,12 @@
   <h2>Forecast 16 days</h2>
 
   <ul class="nav nav-tabs">
-    <li><a data-toggle="tab" href="#wind">Wind</a></li>
-    <li class="active"><a data-toggle="tab" href="#temperature">Temperature</a></li>
+    <li><a href="#wind" (click)="selectWind()">Wind</a></li>
+    <li><a data-toggle="tab" href="#temperature" (click)="selectTemp()">Temperature</a></li>
     <li><a data-toggle="tab" href="#preassure">Presure</a></li>
-    <li><a data-toggle="tab" href="#humidity">Humidity</a></li>
+    <li><a data-toggle="tab" href="#humidity" (click)="selectHumidity()">Humidity</a></li>
   </ul>
-  <div class="tab-content">
-    <div id="wind" class="tab-pane fade">
-    </div>
-    <div id="temperature" class="tab-pane fade in active">
-    </div>
-    <div id="preassure" class="tab-pane fade">
-    </div>
-    <div id="humidity" class="tab-pane fade">
 
-    </div>
-  </div>
   <ngx-charts-bar-vertical
     [view]="view"
     [scheme]="colorScheme"
@@ -27,8 +17,6 @@
     [yAxis]="showYAxis"
     [showGridLines]="showGridLines"
 
-    [showYAxisLabel]="showYAxisLabel"
-
-    (select)="onSelect($event)">
+    [showYAxisLabel]="showYAxisLabel">
   </ngx-charts-bar-vertical>
 </section>
