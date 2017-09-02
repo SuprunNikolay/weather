@@ -4,7 +4,7 @@
   <ul class="nav nav-tabs">
     <li><a href="#wind" (click)="selectWind()">Wind</a></li>
     <li><a data-toggle="tab" href="#temperature" (click)="selectTemp()">Temperature</a></li>
-    <li><a data-toggle="tab" href="#preassure">Presure</a></li>
+    <li><a data-toggle="tab" href="#preassure" (click)="selectPressure()">Presure</a></li>
     <li><a data-toggle="tab" href="#humidity" (click)="selectHumidity()">Humidity</a></li>
   </ul>
 
@@ -12,7 +12,6 @@
     [view]="view"
     [scheme]="colorScheme"
     [results]="result"
-
     [xAxis]="showXAxis"
     [yAxis]="showYAxis"
     [showGridLines]="showGridLines"

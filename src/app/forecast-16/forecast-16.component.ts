@@ -19,8 +19,8 @@ export class Forecast16Component implements OnInit {
   temp: BarData[] = [];
   humidity: BarData[] = [];
   wind: BarData[] = [];
-  result: any;
-
+  result: any = [];
+  pressure: BarData[] = [];
 
   view: any[] = [1000,200];
 
@@ -31,6 +31,7 @@ export class Forecast16Component implements OnInit {
   showYAxis = false;
 
 
+
   colorScheme = {
     domain: ['#ffc6d1']
   };
@@ -39,38 +40,56 @@ export class Forecast16Component implements OnInit {
 
   }
   selectWind() {
-    this.result = null;
+    this.wind =
     this.result = this.wind;
     this.colorScheme = {
-      domain: ['#ffg731']
+      domain: ['#F0E68C']
     };
   }
   selectHumidity() {
-    this.result = [];
     this.result = this.humidity;
     this.colorScheme = {
-      domain: ['#ffc771']
+      domain: ['#48D1CC']
     };
   }
   selectTemp() {
     this.result = this.temp;
+    this.colorScheme = {
+      domain: ['#ffc6d1']
+    };
+  }
+  selectPressure() {
+    this.result = this.pressure;
+    this.colorScheme = {
+      domain: ['#00FA9A']
+    };
   }
 
   ngOnInit() {
     this.appService.getDaily()
       .subscribe(data => {
+        this.temp = [];
+        this.humidity = [];
+        this.wind = [];
         data.list.forEach((value) => {
+
           this.temp.push({
             'name': new Date(value.dt*1000),
             'value': value.temp.max
           });
+
           this.humidity.push({
             'name': new Date(value.dt*1000),
             'value': value.humidity
           });
+
           this.wind.push({
             'name': new Date(value.dt*1000),
             'value': value.speed
+          });
+          this.pressure.push({
+            'name': new Date(value.dt*1000),
+            'value': value.pressure
           });
         });
 
