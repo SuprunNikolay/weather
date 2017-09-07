@@ -1,4 +1,4 @@
-import { Component, OnInit, NgModule } from '@angular/core';
+import {Component, OnInit, NgModule, ViewChild, ElementRef} from '@angular/core';
 import { AppService } from '../app.service';
 import {BrowserModule} from '@angular/platform-browser';
 import {NgxChartsModule} from "@swimlane/ngx-charts";
@@ -22,7 +22,7 @@ export class Forecast16Component implements OnInit {
   result: any = [];
   pressure: BarData[] = [];
 
-  view: any[] = [1000,200];
+  view: any[] = [0,200];
 
   // options
   showXAxis = true;
@@ -30,17 +30,20 @@ export class Forecast16Component implements OnInit {
   showYAxisLabel = false;
   showYAxis = false;
 
-
-
   colorScheme = {
     domain: ['#ffc6d1']
   };
+
+  @ViewChild('chartContainer') chartContainer: ElementRef;
+  ngAfterViewInit(){
+    this.view = [this.chartContainer.nativeElement.offsetWidth,
+    this.chartContainer.nativeElement.offsetHeight]
+  }
 
   constructor(private appService: AppService) {
 
   }
   selectWind() {
-    this.wind =
     this.result = this.wind;
     this.colorScheme = {
       domain: ['#F0E68C']
@@ -71,6 +74,7 @@ export class Forecast16Component implements OnInit {
         this.temp = [];
         this.humidity = [];
         this.wind = [];
+        this.pressure = [];
         data.list.forEach((value) => {
 
           this.temp.push({

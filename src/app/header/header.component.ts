@@ -9,13 +9,16 @@ import { AppService } from '../app.service';
 })
 
 export class HeaderComponent implements OnInit {
-
+  newCity = '';
   constructor(private appService: AppService) {
   }
   clickSearchCity(newCity){
     this.appService.cityChose(newCity);
-    newCity = null;
+    newCity = '';
+    console.log(newCity)
+
   }
+
 
     ngOnInit() {
 

@@ -7,15 +7,17 @@
     <li><a data-toggle="tab" href="#preassure" (click)="selectPressure()">Presure</a></li>
     <li><a data-toggle="tab" href="#humidity" (click)="selectHumidity()">Humidity</a></li>
   </ul>
+  <div class="tab-content" #chartContainer>
+    <ngx-charts-bar-vertical
+      [view]="view"
+      [scheme]="colorScheme"
+      [results]="result"
+      [xAxis]="showXAxis"
+      [yAxis]="showYAxis"
+      [showGridLines]="showGridLines"
 
-  <ngx-charts-bar-vertical
-    [view]="view"
-    [scheme]="colorScheme"
-    [results]="result"
-    [xAxis]="showXAxis"
-    [yAxis]="showYAxis"
-    [showGridLines]="showGridLines"
+      [showYAxisLabel]="showYAxisLabel">
+    </ngx-charts-bar-vertical>
+  </div>
 
-    [showYAxisLabel]="showYAxisLabel">
-  </ngx-charts-bar-vertical>
 </section>
